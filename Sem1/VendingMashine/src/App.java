@@ -21,6 +21,7 @@ public class App {
         itemMachin.addProduct(new HotDrink("Американо", 100, 90, 1));
         itemMachin.addProduct(new HotDrink("Капучино", 150, 80, 1));
         itemMachin.addProduct(new HotDrink("Черный чай", 80, 80, 1));
+        itemMachin.addProduct(new HotDrink("Зеленый чай", 80, 80, 1));
         for (Product prod : itemMachin.getProdAll()) {
             System.out.println(prod.toString());
         }
