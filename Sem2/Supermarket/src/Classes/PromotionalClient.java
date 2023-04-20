@@ -3,12 +3,22 @@ package Classes;
 public class PromotionalClient extends Actor {
     /* Номер акционного клиента */
     private int idSales;
+    private String promotion;
 
-    public PromotionalClient(String name, int idSales) {
+    public PromotionalClient(String name, String promotion, int idSales) {
         super(name);
+        /* номер клиента в акции */
         this.idSales = idSales;
+        /* название акции */
+        this.promotion = promotion;
     }
 
+    /* возврат названия акции */
+    public String getPromotion() {
+        return promotion;
+    }
+
+    /* возврат номера клиента в акции */
     public int getIdSales() {
         return idSales;
     }

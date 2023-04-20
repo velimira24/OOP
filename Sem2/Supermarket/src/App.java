@@ -20,8 +20,8 @@ public class App {
         iActorBehaviour item1 = new OrdinaryClient("Boris");
         iActorBehaviour item2 = new SpecialClient("Fedor", 1101);
         iActorBehaviour item3 = new OrdinaryClient("Dasha");
-        iActorBehaviour item4 = new PromotionalClient("Anna", 1874);
-        iActorBehaviour item5 = new PromotionalClient("Bella", 1254);
+        iActorBehaviour item4 = new PromotionalClient("Anna", "3by2", 1874);
+        iActorBehaviour item5 = new PromotionalClient("Bella", "Black Friday", 1254);
 
         /* Клиент приходит в магазин */
         market.acceptToMarket(item1);
