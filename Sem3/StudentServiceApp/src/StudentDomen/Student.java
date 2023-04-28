@@ -1,7 +1,9 @@
 package StudentDomen;
 
+import StudentService.iGetAge;
+
 /*Студент наследует класс юзера (информационные поля) */
-public class Student extends User implements Comparable<Student> {
+public class Student extends User implements Comparable<Student>, iGetAge {
     /* добавляется новое поле */
     private long studentID;
     /* Конструктор: вызывается информация родителя + добавляется поле с айди */
@@ -58,4 +60,11 @@ public class Student extends User implements Comparable<Student> {
         }
         return 1;
     }
+
+    /* подключаем интерфейс вызова возраста */
+    @Override
+    public int getAge() {
+        return super.getAge();
+    }
+
 }

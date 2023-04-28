@@ -1,69 +1,43 @@
 package StudentDomen;
 
-/*класс учителя наследует класс юзера */
-public class Teacher extends User {
-    /* вводим учителя айди */
-    private long teacherID;
-    /* вводим учителя предмет */
-    private String subject;
-    /* вводим учителя номер кабинета */
-    private int classroom;
-    /* Конструктор: вызывается информация родителя + добавляется поле с айди */
+import StudentService.iGetAge;
 
-    public Teacher(String firstName, String secondName, int age, long teacherID, String subject, int classroom) {
-        /* задаем информацию родительского класса (супер): имя, фамилию, возраст */
+public class Teacher extends User implements iGetAge {
+    /* добавляем айди */
+    private int teacerId;
+    /* добавляем ученую степень */
+    private String academicDegree;
+
+    public Teacher(String firstName, String secondName, int age, int teacerId, String academicDegree) {
         super(firstName, secondName, age);
-        /* задаем айди */
-        this.teacherID = teacherID;
-        /* задаем предмет */
-        this.subject = subject;
-        /* задаем номер комнаты */
-        this.classroom = classroom;
+        this.teacerId = teacerId;
+        this.academicDegree = academicDegree;
     }
 
-    /* геттер айди */
-    public long getTeacherID() {
-        return teacherID;
+    /* геттер */
+    public int getTeacerId() {
+        return teacerId;
     }
 
-    /* сеттер айди */
-    public void setTeacherID(long teacherID) {
-        this.teacherID = teacherID;
+    /* сеттер */
+    public void setTeacerId(int teacerId) {
+        this.teacerId = teacerId;
     }
 
-    /* геттер предмета */
-    public String getSubject() {
-        return subject;
+    /* геттар ученой степени */
+    public String getLevel() {
+        return academicDegree;
     }
 
-    /* сеттер предмета */
-    public void setClassroom(int classroom) {
-        this.classroom = classroom;
+    /* сеттер ученой степени */
+    public void setLevel(String academicDegree) {
+        this.academicDegree = academicDegree;
     }
 
-    /* геттер номера класса */
-    public int getClassroom() {
-        return classroom;
-    }
-
-    /* сеттер номера класса */
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
+    /* подключаем интерфейс вызова возраста */
     @Override
-    /* вывод на экран */
-    public String toString() {
-        return "Student{"
-
-                + "firstName=" + super.getFirstName()
-                + ", secondName=" + super.getSecondName()
-                + ", age=" + super.getAge() +
-                ", teacherID=" + teacherID +
-                ", subject=" + subject +
-                ", classroom=" + classroom +
-                '}';
-
+    public int getAge() {
+        return super.getAge();
     }
 
 }

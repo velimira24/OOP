@@ -2,10 +2,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import Controllers.EmploeeController;
+import StudentDomen.Emploee;
 import StudentDomen.Student;
 import StudentDomen.StudentGroup;
 import StudentDomen.StudentSteam;
 import StudentDomen.User;
+import StudentService.AverageAge;
 import StudentDomen.Teacher;
 
 public class App {
@@ -32,7 +35,7 @@ public class App {
         Student s17 = new Student("Марианна", "Незабудкина", 24, 105);
         Student s18 = new Student("Милена", "Зеленая", 25, 106);
         /* создаем учителя */
-        Teacher t1 = new Teacher("Василий", "Курочкин", 40, 134, "English", 502);
+        Teacher t1 = new Teacher("Василий", "Смирнов", 42, 143, "доцент");
         /* создаем список студентов */
         List<Student> listStud = new ArrayList<Student>();
         /* добавляем студентов */
@@ -106,5 +109,29 @@ public class App {
         for (StudentGroup groupsOfSteam : steam) {
             System.out.println(groupsOfSteam);
         }
+
+        /* добавляем информацию с семинара 4 */
+        /* создаем работника */
+
+        Emploee peron1 = new Emploee("Иванов", "Олег", 55, 110);
+
+        // EmploeeController contrEmp = new EmploeeController();
+        EmploeeController contrEmp = new EmploeeController();
+        EmploeeController.paySalary(peron1);
+        // contrEmp.paySalary(s1);
+        /* высчитываем среднее рабочих часов */
+        Integer studHour[] = { 124, 234, 231, 1, 45 };
+        System.out.println(EmploeeController.mean(studHour));
+        /* высчитываем среднюю разплату по цельсию */
+        Double emplSalary[] = { 12555.23, 34213.5, 10000.0 };
+        System.out.println(EmploeeController.mean(emplSalary));
+
+        /*
+         * считаем средний возраст. За основу возьмем ранее созданные списки студентов
+         */
+        AverageAge<Student> averAge = new AverageAge<>(listStud);
+        System.out.println(averAge);
+        AverageAge<Student> averAge2 = new AverageAge<>(listStud2);
+        System.out.println(averAge2);
     }
 }
