@@ -1,14 +1,20 @@
 package Controller;
 
-import java.util.List;
+import java.util.HashMap;
 import Model.Student;
 
 public interface iGetModel {
     /*
-     * один метод - геттер студентовб аналогично далее вывдим список на английском
+     * один метод - геттер студентов аналогично далее выводим список на английском
      */
-    public List<Student> getAllStudent();
+    public HashMap<Long, Student> getAllStudent();
 
-    public List<Student> getAllStudentEng();
+    public HashMap<Long, Student> getAllStudentEng();
+
+    public HashMap<Long, Student> deleteStudent();/*
+                                                   * сразу тут прописываем, что n
+                                                   * заданная переменная, а то в модел будет отражаться ошибка,
+                                                   * если здесь пустые скобки будут
+                                                   */
 
 }

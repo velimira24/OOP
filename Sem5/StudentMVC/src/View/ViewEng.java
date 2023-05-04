@@ -1,6 +1,6 @@
 package View;
 
-import java.util.List;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import Controller.iGetView;
@@ -8,12 +8,14 @@ import Model.Student;
 
 /*подключаем интерфейс ай-гет-модел */
 public class ViewEng implements iGetView {
-    public void printAllStudentEng(List<Student> students) {
+    public void printAllStudentEng(HashMap<Long, Student> students) {
         System.out.println("-----List of Students-----");
-        for (Student person : students) {
-            System.out.println(person);
+        for (HashMap.Entry<Long, Student> set : students.entrySet()) {
 
+            System.out.println(set.getKey() + " = "
+                    + set.getValue());
         }
+
         System.out.println("-----The end----");
     }
 
@@ -26,7 +28,7 @@ public class ViewEng implements iGetView {
     }
 
     @Override
-    public void printAllStudent(List<Student> students) {
+    public void printAllStudent(HashMap<Long, Student> students) {
         System.out.println("Please try LISTENG");
     }
 

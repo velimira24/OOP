@@ -1,21 +1,24 @@
 package Controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import Model.Student;
+import java.util.HashMap;
 
 public class Controller {
 
-    private List<Student> students;
+    private HashMap<Long, Student> students;
     private iGetView view;
     private iGetModel model;
 
     public Controller(iGetView view, iGetModel model) {
         this.view = view;
         this.model = model;
-        /* ввели список студентов */
-        this.students = new ArrayList<Student>();
+        /* создаем Хэшмэп студентов */
+        this.students = new HashMap<Long, Student>();
+
     }
 
     public void getAllStudent() {
@@ -63,8 +66,6 @@ public class Controller {
         // view.printAllStudent(model.getAllStudent());
     }
 
-    ////
-
     /* метод, который будет перехватывать команды */
     public void run() {
         /*
@@ -88,17 +89,28 @@ public class Controller {
                 /* вывести всех студентов */
                 case LIST:
                     /* получили от модели студентов */
-                    // getAllStudent();
+                    getAllStudent();
                     /* вывели через контроллер */
                     updateView();
                     break;
                 case LISTENG:
+                    getAllStudent();
                     updateViewEng();
                     break;
+
+                case DELETE:
+                    /* удаляем студента */
+                    Scanner iScanner = new Scanner(System.in);
+                    System.out.printf("Введите номер строки, которую нужно удалить: ");
+                    Long a = iScanner.nextLong();
+                    for (HashMap.Entry<Long, Student> set : students.entrySet()) {
+                        students.remove(a);
+                        updateView();
+                        break;
+                    }
+
             }
 
         }
-
     }
-
 }

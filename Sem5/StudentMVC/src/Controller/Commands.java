@@ -6,7 +6,7 @@ public enum Commands {
     CREATE,
     UPDATE,
     LIST,
-    /* добавили список на английском */
+    /* добавила список на английском */
     LISTENG,
     DELETE,
     EXIT
